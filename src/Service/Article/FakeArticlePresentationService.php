@@ -6,7 +6,7 @@ use App\Collection\ArticleCollection;
 use App\Model\Article;
 use Faker\Factory;
 
-final class FakeArticlePresentationService implements ArticlePresentationInterface
+final class FakeArticlePresentationService implements ArticlePresentationInterface, ArticlePageInterface
 {
     private const CATEGORIES = [
         'World',
@@ -37,5 +37,24 @@ final class FakeArticlePresentationService implements ArticlePresentationInterfa
         }
 
         return new ArticleCollection(...$articles);
+    }
+
+    public function getArticle(int $id): Article
+    {
+        $faker = Factory::create();
+
+        $article = new Article($id,
+            $faker->randomElement(self::CATEGORIES),
+            $faker->words($faker->numberBetween(3, 5), true),
+            \DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-7 days'))
+        );
+
+        $article->setDescription(
+            $faker->words($faker->numberBetween(4, 8), true)
+        );
+        $article->setImage($faker->imageUrl());
+        $article->setBody($faker->realText(100));
+
+        return $article;
     }
 }
