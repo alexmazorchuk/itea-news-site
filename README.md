@@ -21,6 +21,11 @@ Installation
     
 3. Run server
 
-    ```bash
+    Linux
+    ```
     $ symfony serve
+    ```
+    Windows
+    ```
+    $ "c:\Program Files\Symfony\symfony.exe" serve
     ```
