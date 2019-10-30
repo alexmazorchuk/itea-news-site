@@ -1,5 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This is a training news site based on Symfony framework.
+ * (c) Al Maz <019maz@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\Service\Article;
 
 use App\Collection\ArticleCollection;
@@ -20,7 +29,7 @@ final class FakeArticlePresentationService implements ArticlePresentationInterfa
         $faker = Factory::create();
         $articles = [];
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; ++$i) {
             $article = new Article(
                 $faker->numberBetween(1, 10),
                 $faker->randomElement(self::CATEGORIES),
