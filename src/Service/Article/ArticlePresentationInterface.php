@@ -9,8 +9,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-return [
-    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
-    Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
-    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
-];
+namespace App\Service\Article;
+
+use App\Collection\ArticleCollection;
+
+interface ArticlePresentationInterface
+{
+    public function getLatest(): ArticleCollection;
+}

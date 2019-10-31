@@ -13,5 +13,8 @@
 /.php_cs.cache
 ###< friendsofphp/php-cs-fixer ###
 
+# Mac DS_Store Files
+.DS_Store
+
 # PhpStorm project files
 /.idea/
